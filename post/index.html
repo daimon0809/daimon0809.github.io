@@ -65,6 +65,24 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="http://example.org/post/buildblog/" title="如何用 hugo 搭建个人博客">如何用 hugo 搭建个人博客</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月4日
+        </date>
+        
+        <div class="post-content">
+            如何用 hugo 搭建个人博客 安装hugo Windows安装方式：（本文只讲述Windows安装）  去Hugo releases 页面下载 hugo_xxx_Windows-64.bit.zip； 解压，把hugo.exe放到 D:\Software\hugo\hugo.exe； 把 D:\Software\hugo 加入到PATH中； 重启终端，运行 hugo version 查看版本号。  如何快速搭建hugo博客 看文档搞出网站  进入hugo 官网，点击quick start，从step开始到step7； hugo new site quickstart（你自己的博客生成器，名称自定义，通常用yourname.github.io-generator） cd quickstart （去到你的博客路径下面） git init （生成本地仓库） git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke （下载主题，主题可更换） echo &lsquo;theme = &ldquo;ananke&rdquo;&rsquo; &raquo; config.toml （添加主题） hugo new post/my-first-post.md (创建博客) hugo server -D （启动本地服务） hugo -D （生成可推送GitHub的博客，quickstart路径下会多个public目录） 创建 .gitignore 文件，添加 /public/ 当前仓库不储存public（即public要单独成立仓库） cd public git init git add .……
+        </div>
+        <p class="readmore"><a href="http://example.org/post/buildblog/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="http://example.org/post/my-first-post/" title="My First Blog">My First Blog</a>
             </h1>
         </header>
@@ -142,6 +160,10 @@ git 提交代码  git add *** git commit -v / -m(简化日志)	跳转到VSCode  
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="http://example.org/post/buildblog/" title="如何用 hugo 搭建个人博客">如何用 hugo 搭建个人博客</a>
+    </li>
     
     <li>
         <a href="http://example.org/post/gitcmd/" title="git常用命令">git常用命令</a>
