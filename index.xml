@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>五岛的博客</title>
-    <link>http://example.org/</link>
+    <link>http://daimon.xyz/</link>
     <description>Recent content on 五岛的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Mon, 04 May 2020 11:00:07 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://daimon.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>如何用 hugo 搭建个人博客</title>
-      <link>http://example.org/post/buildblog/</link>
+      <link>http://daimon.xyz/post/buildblog/</link>
       <pubDate>Mon, 04 May 2020 11:00:07 +0800</pubDate>
       
-      <guid>http://example.org/post/buildblog/</guid>
+      <guid>http://daimon.xyz/post/buildblog/</guid>
       <description>如何用 hugo 搭建个人博客 安装hugo Windows安装方式：（本文只讲述Windows安装）  去Hugo releases 页面下载 hugo_xxx_Windows-64.bit.zip； 解压，把hugo.exe放到 D:\Software\hugo\hugo.exe； 把 D:\Software\hugo 加入到PATH中； 重启终端，运行 hugo version 查看版本号。  如何快速搭建hugo博客 看文档搞出网站  进入hugo 官网，点击quick start，从step开始到step7； hugo new site quickstart（你自己的博客生成器，名称自定义，通常用yourname.github.io-generator） cd quickstart （去到你的博客路径下面） git init （生成本地仓库） git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke （下载主题，主题可更换） echo &amp;lsquo;theme = &amp;ldquo;ananke&amp;rdquo;&amp;rsquo; &amp;raquo; config.toml （添加主题） hugo new post/my-first-post.md (创建博客) hugo server -D （启动本地服务） hugo -D （生成可推送GitHub的博客，quickstart路径下会多个public目录） 创建 .gitignore 文件，添加 /public/ 当前仓库不储存public（即public要单独成立仓库） cd public git init git add .</description>
     </item>
     
     <item>
       <title>git常用命令</title>
-      <link>http://example.org/post/gitcmd/</link>
+      <link>http://daimon.xyz/post/gitcmd/</link>
       <pubDate>Tue, 28 Apr 2020 20:01:07 +0800</pubDate>
       
-      <guid>http://example.org/post/gitcmd/</guid>
+      <guid>http://daimon.xyz/post/gitcmd/</guid>
       <description>git常用命令 git本地仓库命令 git六行配置  git config &amp;ndash;global user.name 你的英文名 git config &amp;ndash;global user.email 你的邮箱 git config &amp;ndash;global push.default simple git config &amp;ndash;global core.quotepath false git config &amp;ndash;global core.editor &amp;ldquo;code &amp;ndash;wait&amp;rdquo; git config &amp;ndash;global core.autocrlf input  git init	创建.git仓库
 git add	标记文件将要被提交
 .gitignore	标记不需要提交的文件
@@ -34,20 +34,20 @@ git 提交代码  git add *** git commit -v / -m(简化日志)	跳转到VSCode  
     
     <item>
       <title>just have a try</title>
-      <link>http://example.org/post/have-a-try/</link>
+      <link>http://daimon.xyz/post/have-a-try/</link>
       <pubDate>Tue, 28 Apr 2020 20:01:07 +0800</pubDate>
       
-      <guid>http://example.org/post/have-a-try/</guid>
+      <guid>http://daimon.xyz/post/have-a-try/</guid>
       <description>《丑奴儿》 少年不识愁滋味，爱上层楼。 爱上层楼， 为赋新词强说愁。
 而今识尽愁滋味，欲说还休。 欲说还休， 却道天凉好个秋。</description>
     </item>
     
     <item>
       <title>My First Blog</title>
-      <link>http://example.org/post/my-first-post/</link>
+      <link>http://daimon.xyz/post/my-first-post/</link>
       <pubDate>Tue, 28 Apr 2020 20:01:07 +0800</pubDate>
       
-      <guid>http://example.org/post/my-first-post/</guid>
+      <guid>http://daimon.xyz/post/my-first-post/</guid>
       <description>hello everyone my first blog</description>
     </item>
     
