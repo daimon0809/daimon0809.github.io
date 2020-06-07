@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>My First Blog | 五岛的博客</title>
-    <meta property="og:title" content="My First Blog - 五岛的博客">
+    <title>maven解决包冲突 | 五岛的博客</title>
+    <meta property="og:title" content="maven解决包冲突 - 五岛的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2020-04-28T20:01:07&#43;08:00'>
+    <meta property="article:published_time" content='2020-05-20T11:00:07&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2020-04-28T20:01:07&#43;08:00'>
+    <meta property="article:modified_time" content='2020-05-20T11:00:07&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="My First Blog">
+    <meta name="description" content="maven解决包冲突">
         
     <meta name="author" content="">
-    <meta property="og:url" content="http://daimon.xyz/post/my-first-post/">
+    <meta property="og:url" content="http://daimon.xyz/post/maven-package-manage/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -66,17 +66,65 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">My First Blog</h1>
+            <h1 class="post-title">maven解决包冲突</h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月28日
+            2020年5月20日
         </date>
         
         
         
         <div class="post-content">
-            <h1 id="hello-everyone">hello everyone</h1>
-<p>my first blog</p>
+            <h2 id="maven传递性依赖的动管理">maven传递性依赖的⾃动管理</h2>
+<p>原则：绝对不允许最终的classpath出现同名不同版本的jar包</p>
+<h2 id="maven依赖冲突的解决">maven依赖冲突的解决</h2>
+<p>原则：最近的胜出
+即：如下依赖D0.1版本胜出</p>
+<pre><code>A--&gt;B--&gt;C--&gt;D0.2
+A--&gt;E--&gt;D0.1
+</code></pre><h2 id="包冲突场景包冲突通常会如下一些错误打屏">包冲突场景（包冲突通常会如下一些错误打屏）：</h2>
+<ul>
+<li>========== AbstractMethodError ==========</li>
+<li>========== NoClassDefFoundError =========</li>
+<li>========== ClassNotFoundException =======</li>
+<li>========== LinkageError =================</li>
+<li>========== NoSuchMethodError ============</li>
+</ul>
+<h2 id="情景还原nosuchmethoderror">情景还原（NoSuchMethodError）:</h2>
+<p>如下图：<!-- raw HTML omitted -->
+<img src="/images/maven-conflit_20200608000102.png" alt=""></p>
+<h2 id="解决方式">解决方式：</h2>
+<p>根据上图信息查看Class文件MappingJacksonValue<!-- raw HTML omitted -->
+确没有getJsonpFunction()方法
+<img src="/images/calss-method_20200608002846.png" alt=""></p>
+<h3 id="找到差异位置">找到差异位置</h3>
+<h4 id="命令行方式对比差异">命令行方式对比差异：</h4>
+<ol>
+<li>mvn dependency:tree  执行得到如下依赖树<!-- raw HTML omitted -->
+<img src="/images/mvn-dependency_20200608003702.png" alt=""></li>
+<li>查看所有maven依赖<!-- raw HTML omitted -->
+<img src="/images/mvn-dependency3_20200608004340.png" alt=""></li>
+<li>对比差异<!-- raw HTML omitted --> org.springframework:spring-web4.3.6RELEASE 版本被省略<!-- raw HTML omitted --></li>
+<li>查看org.springframework:spring-web4.3.6RELEASE源码,确有getJsonpFunction()方法<!-- raw HTML omitted -->
+<img src="/images/class-method2_20200608005513.png" alt=""></li>
+</ol>
+<h4 id="插件方式对比差异">插件方式对比差异：</h4>
+<ol>
+<li>安装插件 maven helper<!-- raw HTML omitted -->
+<img src="/images/maven-helper_20200608005857.png" alt=""></li>
+<li><img src="/images/maven-helper-resolve_20200608010249.png" alt=""></li>
+</ol>
+<h3 id="解决冲突">解决冲突</h3>
+<ol>
+<li>
+<p>导入需要的版本jar包,如下图<!-- raw HTML omitted -->
+<img src="/images/jar4.3.6_20200608011321.png" alt=""></p>
+</li>
+<li>
+<p>去除不需要的版本jar包，如下图<!-- raw HTML omitted -->
+<img src="/images/jar5.1.8_20200608011439.png" alt=""></p>
+</li>
+</ol>
 
         </div>
 

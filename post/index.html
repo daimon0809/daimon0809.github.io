@@ -65,6 +65,26 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="http://daimon.xyz/post/maven-package-manage/" title="maven解决包冲突">maven解决包冲突</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月20日
+        </date>
+        
+        <div class="post-content">
+            maven传递性依赖的⾃动管理 原则：绝对不允许最终的classpath出现同名不同版本的jar包
+maven依赖冲突的解决 原则：最近的胜出 即：如下依赖D0.1版本胜出
+A--&gt;B--&gt;C--&gt;D0.2 A--&gt;E--&gt;D0.1 包冲突场景（包冲突通常会如下一些错误打屏）：  ========== AbstractMethodError ========== ========== NoClassDefFoundError ========= ========== ClassNotFoundException ======= ========== LinkageError ================= ========== NoSuchMethodError ============  情景还原（NoSuchMethodError）: 如下图：解决方式： 根据上图信息查看Class文件MappingJacksonValue确没有getJsonpFunction()方法 找到差异位置 命令行方式对比差异：  mvn dependency:tree 执行得到如下依赖树 查看所有maven依赖 对比差异org.springframework:spring-web4.3.6RELEASE 版本被省略 查看org.springframework:spring-web4.3.6RELEASE源码,确有getJsonpFunction()方法  插件方式对比差异：  安装插件 maven helper   解决冲突   导入需要的版本jar包,如下图  去除不需要的版本jar包，如下图  ……
+        </div>
+        <p class="readmore"><a href="http://daimon.xyz/post/maven-package-manage/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="http://daimon.xyz/post/buildblog/" title="如何用 hugo 搭建个人博客">如何用 hugo 搭建个人博客</a>
             </h1>
         </header>
@@ -160,6 +180,10 @@ git 提交代码  git add *** git commit -v / -m(简化日志)	跳转到VSCode  
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="http://daimon.xyz/post/maven-package-manage/" title="maven解决包冲突">maven解决包冲突</a>
+    </li>
     
     <li>
         <a href="http://daimon.xyz/post/buildblog/" title="如何用 hugo 搭建个人博客">如何用 hugo 搭建个人博客</a>
