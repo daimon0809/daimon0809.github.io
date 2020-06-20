@@ -63,6 +63,24 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="http://daimon.xyz/post/hashmap_unsynchronized/" title="HashMap为什么是线程不安全的">HashMap为什么是线程不安全的</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月20日
+        </date>
+        
+        <div class="post-content">
+            HashMap注释 The HashMap class is roughly equivalent to Hashtable , except that it is unsynchronized and permits nulls。
+HashMap类与Hashtable大致等效，不同之处在于它是不同步的，并且允许为null。
+为什么HashMap是线程不安全的  put操作会调用addEntry，多线程操作同一个键造成数据覆盖  void addEntry(int hash, K key, V value, int bucketIndex) { Entry&lt;K,V&gt; e = table[bucketIndex]; table[bucketIndex] = new Entry&lt;K,V&gt;(hash, key, value, e); if (size++ &gt;= threshold) resize(2 * table.length); } 删除键值对操作，多线程操作，键位置改变，造成数据丢失  final Entry&lt;K,V&gt; removeEntryForKey(Object key) { int hash = (key == null) ? 0 : hash(key.hashCode()); int i = indexFor(hash, table.……
+        </div>
+        <p class="readmore"><a href="http://daimon.xyz/post/hashmap_unsynchronized/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="http://daimon.xyz/post/maven-package-manage/" title="maven解决包冲突">maven解决包冲突</a>
             </h1>
         </header>
@@ -169,6 +187,10 @@ git 提交代码  git add *** git commit -v / -m(简化日志)	跳转到VSCode  
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="http://daimon.xyz/post/hashmap_unsynchronized/" title="HashMap为什么是线程不安全的">HashMap为什么是线程不安全的</a>
+    </li>
     
     <li>
         <a href="http://daimon.xyz/post/maven-package-manage/" title="maven解决包冲突">maven解决包冲突</a>
