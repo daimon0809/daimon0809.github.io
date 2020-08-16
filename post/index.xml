@@ -6,17 +6,17 @@
     <description>Recent content in Posts on 五岛的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 16 Aug 2020 20:01:07 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2020 00:53:09 +0800</lastBuildDate>
     
 	<atom:link href="http://daimon.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>初探Java多线程</title>
-      <link>http://daimon.xyz/post/first-thread-try/</link>
-      <pubDate>Sun, 16 Aug 2020 20:01:07 +0800</pubDate>
+      <title>First Thread Train</title>
+      <link>http://daimon.xyz/post/first-thread-train/</link>
+      <pubDate>Mon, 17 Aug 2020 00:53:09 +0800</pubDate>
       
-      <guid>http://daimon.xyz/post/first-thread-try/</guid>
+      <guid>http://daimon.xyz/post/first-thread-train/</guid>
       <description>初探线程 Java线程具有五种基本状态  新建状态：当线程对象创建后，处于新建状态，如：Thread thread = new MyThread(); 就绪状态(Runnable)：当调用的线程对象的start()方法，线程及进入就绪状态。即cpu空闲即可调度执行； 运行状态(Running)：CPU开始调度线程； 阻塞状态(Blocked)：由于某些行为，使得线程放弃CPU使用权;  wait() sleep() join() synchronized()   死亡状态(Dead)：线程执行完了或者因异常退出了run()方法，该线程结束生命周期。  </description>
     </item>
     
