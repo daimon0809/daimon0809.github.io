@@ -6,10 +6,19 @@
     <description>Recent content on 五岛的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 17 Aug 2020 00:53:09 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Jan 2021 22:14:23 +0800</lastBuildDate>
     
 	<atom:link href="http://daimon.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Http Lebal</title>
+      <link>http://daimon.xyz/post/http-lebal/</link>
+      <pubDate>Tue, 19 Jan 2021 22:14:23 +0800</pubDate>
+      
+      <guid>http://daimon.xyz/post/http-lebal/</guid>
+      <description>HTML常用标签 a 标签  属性  href target download rel=noopener   作用  跳转到外部页面 跳转到内部锚点 跳转到邮箱，电话等   a 的 target取值  _blank _top _parent _self    img 标签  作用  发出GET请求，展示一张图片   属性  alt/height/width/src   事件  onload/onerror   响应式  max-width:100%     table 标签  thead tbody tfoot  form 表单  action method autocomplete(on)   </description>
+    </item>
     
     <item>
       <title>First Thread Train</title>
