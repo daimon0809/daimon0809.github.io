@@ -6,10 +6,22 @@
     <description>Recent content on 五岛的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 19 Jan 2021 22:14:23 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Jan 2021 20:38:13 +0800</lastBuildDate>
     
 	<atom:link href="http://daimon.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Thinking About Url</title>
+      <link>http://daimon.xyz/post/thinking-about-url/</link>
+      <pubDate>Wed, 20 Jan 2021 20:38:13 +0800</pubDate>
+      
+      <guid>http://daimon.xyz/post/thinking-about-url/</guid>
+      <description>初探URL  URL 包含哪几部分，每部分分别有什么作用    全称： HyperText Transfer Protocol （超文本传输协议）
+  协议 + 域名或IP + 端口号 + 路径 + 查询字符串 + 锚点
+例如： https://www.baidu.com/s?word=hello&amp;amp;rsv_spt=1#5
+ 协议：http/https,指定应用层协议类型 域名/IP：用于寻址，区分服务器 端口号：和域名/IP一起使用 路径：请求地址，默认为根路径 查询字符串：查询条件 锚点：跳转到指定id所在位置     DNS 的作用是什么，nslookup 命令怎么用   全称：Domain Name System（域名系统） nslookup 域名  IP 的作用是什么，ping 命令怎么用   确定服务器地址以及寻址 ping IP/域名 ，根据相应信息判断是否能够建立链接  域名是什么，分别哪几类域名   域名即IP别名（存于文件hosts）  </description>
+    </item>
     
     <item>
       <title>Http Lebal</title>

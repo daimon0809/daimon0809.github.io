@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>HashMap为什么是线程不安全的 | 五岛的博客</title>
-    <meta property="og:title" content="HashMap为什么是线程不安全的 - 五岛的博客">
+    <title>Thinking About Url | 五岛的博客</title>
+    <meta property="og:title" content="Thinking About Url - 五岛的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2020-05-20T11:00:07&#43;08:00'>
+    <meta property="article:published_time" content='2021-01-20T20:38:13&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2020-05-20T11:00:07&#43;08:00'>
+    <meta property="article:modified_time" content='2021-01-20T20:38:13&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="HashMap为什么是线程不安全的">
+    <meta name="description" content="Thinking About Url">
         
     <meta name="author" content="">
-    <meta property="og:url" content="http://daimon.xyz/post/hashmap_unsynchronized/">
+    <meta property="og:url" content="http://daimon.xyz/post/thinking-about-url/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -66,77 +66,57 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">HashMap为什么是线程不安全的</h1>
+            <h1 class="post-title">Thinking About Url</h1>
         </header>
         <date class="post-meta meta-date">
-            2020年5月20日
+            2021年1月20日
         </date>
         
         
         
         <div class="post-content">
-            <h3 id="hashmap注释">HashMap注释</h3>
-<p>The HashMap  class is roughly equivalent to  Hashtable , except that it is  <!-- raw HTML omitted --> unsynchronized <!-- raw HTML omitted -->
-and permits nulls。</p>
-<!-- raw HTML omitted -->
-<p>HashMap类与Hashtable大致等效，不同之处在于它是不同步的，并且允许为null。</p>
-<h3 id="为什么hashmap是线程不安全的">为什么HashMap是线程不安全的</h3>
+            <h1 id="初探url">初探URL</h1>
 <ol>
-<li>put操作会调用addEntry，多线程操作同一个键造成数据覆盖</li>
+<li>URL 包含哪几部分，每部分分别有什么作用</li>
 </ol>
-<pre><code>void addEntry(int hash, K key, V value, int bucketIndex) {
-	Entry&lt;K,V&gt; e = table[bucketIndex];
-        table[bucketIndex] = new Entry&lt;K,V&gt;(hash, key, value, e);
-        if (size++ &gt;= threshold)
-            resize(2 * table.length);
-}
-</code></pre><ol start="2">
-<li>删除键值对操作，多线程操作，键位置改变，造成数据丢失</li>
+<ul>
+<li>
+<p>全称： HyperText Transfer Protocol （超文本传输协议）</p>
+</li>
+<li>
+<p>协议 + 域名或IP + 端口号 + 路径 + 查询字符串 + 锚点</p>
+<p>例如： <a href="https://www.baidu.com/s?word=hello&amp;rsv_spt=1#5">https://www.baidu.com/s?word=hello&amp;rsv_spt=1#5</a></p>
+<ul>
+<li>协议：http/https,指定应用层协议类型</li>
+<li>域名/IP：用于寻址，区分服务器</li>
+<li>端口号：和域名/IP一起使用</li>
+<li>路径：请求地址，默认为根路径</li>
+<li>查询字符串：查询条件</li>
+<li>锚点：跳转到指定id所在位置</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>DNS 的作用是什么，nslookup 命令怎么用</li>
 </ol>
-<pre><code>final Entry&lt;K,V&gt; removeEntryForKey(Object key) {
-        int hash = (key == null) ? 0 : hash(key.hashCode());
-        int i = indexFor(hash, table.length);
-        Entry&lt;K,V&gt; prev = table[i];
-        Entry&lt;K,V&gt; e = prev;
- 
-        while (e != null) {
-            Entry&lt;K,V&gt; next = e.next;
-            Object k;
-            if (e.hash == hash &amp;&amp;
-                ((k = e.key) == key || (key != null &amp;&amp; key.equals(k)))) {
-                modCount++;
-                size--;
-                if (prev == e)
-                    table[i] = next;
-                else
-                    prev.next = next;
-                e.recordRemoval(this);
-                return e;
-            }
-            prev = e;
-            e = next;
-        }
- 
-        return e;
-}
-</code></pre><ol start="3">
-<li>addEntry中当加入新的键值对后键值对总数量超过门限值的时候会调用一个resize操作
-扩容的时候可能会变成一个死循环链表，造成cpu占比100%</li>
+<ul>
+<li>全称：Domain Name System（域名系统）</li>
+<li>nslookup 域名</li>
+</ul>
+<ol start="3">
+<li>IP 的作用是什么，ping 命令怎么用</li>
 </ol>
-<pre><code>void resize(int newCapacity) {
-        Entry[] oldTable = table;
-        int oldCapacity = oldTable.length;
-        if (oldCapacity == MAXIMUM_CAPACITY) {
-            threshold = Integer.MAX_VALUE;
-            return;
-        }
- 
-        Entry[] newTable = new Entry[newCapacity];
-        transfer(newTable);
-        table = newTable;
-        threshold = (int)(newCapacity * loadFactor);
-}
-</code></pre>
+<ul>
+<li>确定服务器地址以及寻址</li>
+<li>ping IP/域名 ，根据相应信息判断是否能够建立链接</li>
+</ul>
+<ol start="4">
+<li>域名是什么，分别哪几类域名</li>
+</ol>
+<ul>
+<li>域名即IP别名（存于文件hosts）</li>
+</ul>
+
         </div>
 
         
